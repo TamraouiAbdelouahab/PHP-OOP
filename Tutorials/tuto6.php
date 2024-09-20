@@ -1,8 +1,19 @@
 <?php
 // Récupération des deux nombres
+
 $nombre1 = readline("Entrez le premier nombre : ");
+while(!is_numeric($nombre1))
+{
+    echo "le nombre doit être number\n";
+    $nombre1 = readline("Entrez le premier nombre : ");
+}
 
 $nombre2 = readline("Entrez le deuxième nombre : ");
+while(!is_numeric($nombre2))
+{
+    echo "le nombre doit être number\n";
+    $nombre2 = readline("Entrez le deuxième nombre : ");
+}
 
 // Récupération de l'opération
 echo "Choisissez l'opération (+, -, *, /) : ";
