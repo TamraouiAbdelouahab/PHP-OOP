@@ -1,17 +1,9 @@
 <?php
-include "../Services/Bookservice.php";
-include "../Entity/Book.php";
-use Entity\Book;
+include "presentation.php";
 
-$Books = new Bookservices();
+start();
 
 
-
-$title = readline("Title book : ");
-$isbn = readline("ISBN book : ");
-$book = new Book($title ,$isbn);
-$Books->addbook($book);
-// $Books->getbooks();
 
 
 
