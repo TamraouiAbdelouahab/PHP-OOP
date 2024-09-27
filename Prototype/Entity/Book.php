@@ -3,20 +3,24 @@
 
 class Book {
 
-    // private $id;
+    private $id;
     private $title;
     private $ISBN;
 
-    public function __construct($title, $ISBN) {
+    public function __construct($id,$title, $ISBN) {
 
+        $this->id = $id;
         $this->title = $title;
         $this->ISBN = $ISBN;
     }
 
 // Getters
-    // public function getId() {
-    //     return $this->id;
-    // }
+    public function getId() {
+        return $this->id;
+    }
+    public function setId($id) {
+        $this->id = $id;
+    }
     public function getTitle() {
         return $this->title;
     }
@@ -31,11 +35,8 @@ class Book {
         $this->ISBN = $ISBN;
     }
     public function Display() {
-    return "Title : " . $this->getTitle() ." ISBN : ". $this->getISBN() . "\n";
+    return "Id : " . $this->getId()." ,Title : " . $this->getTitle() ." ,ISBN : ". $this->getISBN() . "\n";
     }
 }
-
-
-
 
 ?>

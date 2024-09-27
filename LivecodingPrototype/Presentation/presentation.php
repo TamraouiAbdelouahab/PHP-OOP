@@ -1,11 +1,11 @@
 <?php
-include "../Services/Bookservice.php";
-include "../Entity/Book.php";
-$Service = new Bookservices();
+include "../Services/ProductService.php";
+include "../Entities/Product.php";
+$Service = new ProductService();
 function  presentation()
 {
     echo "+-----------------------------------------+\n";
-    echo "|            Welcome to library           |\n";
+    echo "|              Welcome                    |\n";
     echo "+-----------------------------------------+\n";
     echo "|             [V] : View books            |\n";
     echo "|             [A] : Add book              |\n";
@@ -15,33 +15,19 @@ function  presentation()
 function DisplayData()
 {
     global $Service;
-    foreach($Service->getbooks() as $key => $book)
+    foreach($Service->getProducts() as $key => $product)
     {
-        echo ($key+1) . ") " . $book->Display() . "\n";
+        echo ($key+1) . ") " . $product->Display();
     }
 }
-function lastId():int
+function AddProduct()
 {
     global $Service;
-    $books = $Service->getbooks();
-    if(empty($books))
-    {
-        return 0;
-    }
-    else
-    {
-        $lastid = end($books)->getId();
-        return intval($lastid);
-    }
-}
-function AddBook()
-{
-    global $Service;
-    $title = readline("Enter title book : ");
-    $isbn  = readline("Enter ISBN book : ");
-    $book = new Book(lastId()+1,$title, $isbn);
-    $Service->addbook($book);
-    echo "added book succes\n";
+    $name = readline("Enter Name product : ");
+    $price  = readline("Enter price product: ");
+    $book = new Product($name, $price);
+    $Service->addProduct($book);
+    
 }
 function start()
 {
@@ -50,7 +36,7 @@ function start()
     $V = strtolower($value);
     switch ($V) {
         case "a":
-            AddBook();
+            AddProduct();
             start();
         case "v":
             DisplayData();

@@ -13,7 +13,6 @@ Class BookDAO {
         $Books->setBooks($book);
         $Books->saveData();
     }
-
 }
 
 ?>
